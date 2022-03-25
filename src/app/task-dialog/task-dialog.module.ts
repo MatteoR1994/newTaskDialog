@@ -10,6 +10,9 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     SharedModule
+  ],
+  exports: [
+    TaskDialogComponent
   ]
 })
 export class TaskDialogModule { }
