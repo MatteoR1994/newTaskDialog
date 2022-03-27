@@ -1,3 +1,10 @@
-<button (click)="openDialog()" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+<button (click)="openDialog()" class="button" mat-fab color="primary" aria-label="Example icon button with a delete icon">
   <mat-icon>add</mat-icon>
 </button>
+
+<div class="dialogData" *ngIf="dialogResultData">
+  <h2>Hai inserito:</h2>
+  <span>{{dialogResultData.name}}</span>
+  <span>{{dialogResultData.priority}}</span>
+  <mat-chip class="resultTag" color="primary" *ngFor="let tag of dialogResultData.tags">{{tag}}</mat-chip>
+</div>

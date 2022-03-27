@@ -1,1 +1,26 @@
-<p>task-dialog works!</p>
+<h1 mat-dialog-title>Inserisci i dati del nuovo task</h1>
+<div mat-dialog-content>
+    <mat-chip-list multiple aria-label="Fish selection">
+    <mat-chip class="chipTag" color="primary" *ngFor="let tag of tagArray" #c="matChip" (click)="selection(c)">{{tag}}</mat-chip>
+    </mat-chip-list>
+
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Task Name</mat-label>
+        <input matInput type="text" [(ngModel)]="taskModel.name">
+        <button *ngIf="taskModel.name" matSuffix mat-icon-button aria-label="Clear" (click)="taskModel.name=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Task Priority</mat-label>
+        <input matInput type="number" [(ngModel)]="taskModel.priority">
+        <button *ngIf="taskModel.priority !== 0" matSuffix mat-icon-button aria-label="Clear" (click)="taskModel.priority=0">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="taskModel" cdkFocusInitial>Ok</button>
+</div>
